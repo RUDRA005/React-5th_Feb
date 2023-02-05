@@ -1,0 +1,46 @@
+=> The accumulator and currentValue are parameters used in the callback function passed to reduce.
+=> The accumulator is the value that accumulates the result of each iteration of the function, and the currentValue is the current value being processed in the array.
+
+Here's an example to help clarify: 👇
+
+const numbers = [1, 2, 3, 4, 5];
+
+const sum = numbers.reduce((accumulator, currentValue) => {
+  console.log("accumulator: ", accumulator);
+  console.log("currentValue: ", currentValue);
+  return accumulator + currentValue;
+}, 0);
+
+console.log(sum);
+
+👍 OUT PUT 👍
+
+accumulator:  0
+currentValue:  1
+accumulator:  1
+currentValue:  2
+accumulator:  3
+currentValue:  3
+accumulator:  6
+currentValue:  4
+accumulator:  10
+currentValue:  5
+15
+
+👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+
+👉 :- In the first iteration, accumulator is equal to the initial value 0 and currentValue is equal to 1. The function returns 0 + 1, which becomes the new value of the accumulator.
+
+👉 :- In the next iteration, accumulator is equal to 1 and currentValue is equal to 2. The function returns 1 + 2, which becomes the new value of the accumulator.
+
+
+👉 :- This process continues until all the values in the array have been processed, and the final value of the accumulator is returned, which in this case is 15.
+
+
+
+
+
+
+
+
+
