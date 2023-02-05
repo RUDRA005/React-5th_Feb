@@ -1,0 +1,122 @@
+=>Retrive list of full names
+=>["Ram Das", "Sita Devi", "Ravan Panda"] etc....
+
+const users = [
+    { firstName: "Ram", lastName: "Das", age: 26},
+    { firstName: "Sita", lastName: "Devi", age: 27},
+    { firstName: "Ravan", lastName: "Panda", age: 28},
+    { firstName: "Laxman", lastName: "Sahu", age: 29},
+];
+
+
+Ans :- 
+
+const output = users.map(x => x.firstName + x.lastName);
+console.log(output);
+
+OUTPUT :- ['RamDas', 'SitaDevi', 'RavanPanda', 'LaxmanSahu']
+
+***************************************************************************
+// acc = {26 : 1, 75 : 1, 50 : 1 }
+const users = [
+    { firstName: "Ram", lastName: "Das", age: 26},
+    { firstName: "Sita", lastName: "Devi", age: 75},
+    { firstName: "Ravan", lastName: "Panda", age: 50},
+    { firstName: "Laxman", lastName: "Sahu", age: 26},
+];
+
+
+const output = users.reduce(function(acc, curr){
+   if(acc[curr.age]){
+        acc[curr.age ] = ++acc[curr.age];
+   }
+   else {
+    acc[curr.age] = 1
+   }
+
+   return acc;
+},{})
+console.log(output);
+
+
++> OUTPUT :- 
+{26: 2, 50: 1, 75: 1}
+26: 2
+50: 1
+75: 1
+
+Explanation :- 
+This code uses the reduce() method to create an object that keeps track of the count of each age in the users array. Here's a step-by-step explanation:
+
+const users = [{ firstName: "Ram", lastName: "Das", age: 26}, { firstName: "Sita", lastName: "Devi", age: 75}, { firstName: "Ravan", lastName: "Panda", age: 50}, { firstName: "Laxman", lastName: "Sahu", age: 26}];: This line declares a constant variable users and initializes it with an array of 4 objects, each representing a user with a firstName, lastName, and age property.
+
+const output = users.reduce(function(acc, curr){: This line declares a constant variable output and initializes it with the result of calling the reduce() method on the users array. The reduce() method takes a callback function as its argument. The callback function takes two arguments: acc and curr.
+
+if(acc[curr.age]){: Within the callback function, this line checks if the age property of the current user curr already exists as a property in the acc object.
+
+acc[curr.age ] = ++acc[curr.age];: If the age property exists in the acc object, its value is incremented by 1.
+
+else {: If the age property does not exist in the acc object, a new property with the name of the age value is added to the acc object and its value is set to 1.
+
+return acc;: The callback function returns the updated acc object.
+
+},{}): The reduce() method is passed an initial value of an empty object {}. This is the starting value for acc on the first iteration of the reduce() method.
+
+console.log(output);: This line logs the final value of output to the console, which should be an object with properties 26 with value 2, 75 with value 1, and 50 with value 1.
+
+So, in summary, the code uses the reduce() method to iterate through the users array and create an object that keeps track of the count of each age in the users array. The final object is stored in the output variable and logged to the console.
+
+
+***********************************************************************************************find the age is age < 30;
+
+// acc = {26 : 1, 75 : 1, 50 : 1 }
+const users = [
+    { firstName: "Ram", lastName: "Das", age: 26},
+    { firstName: "Sita", lastName: "Devi", age: 75},
+    { firstName: "Ravan", lastName: "Panda", age: 50},
+    { firstName: "Laxman", lastName: "Sahu", age: 26},
+];
+
+
+const output = users.filter((x) => x.age<30);
+console.log(output);
+
+=> OUTPUT :- 
+(2) [{…}, {…}]
+0: {firstName: 'Ram', lastName: 'Das', age: 26}
+1: {firstName: 'Laxman', lastName: 'Sahu', age: 26}
+length: 2
+*************************************************************
+
+
+
+
+//find first name ... ["Ram" , "Sita"] 
+const users = [
+    { firstName: "Ram", lastName: "Das", age: 26},
+    { firstName: "Sita", lastName: "Devi", age: 75},
+    { firstName: "Ravan", lastName: "Panda", age: 50},
+    { firstName: "Laxman", lastName: "Sahu", age: 26},
+];
+
+
+const output = users.filter((x) => x.age<30).map((x)=> x.firstName);
+console.log(output);
+
+OUTPUT : 
+(2) ['Ram', 'Laxman']
+0: "Ram"
+1: "Laxman"
+************************************************************************************
+The code uses the filter() method to filter the users array and only include the users whose age is less than 30. It then uses the map() method to extract the firstName property of each filtered user and return a new array of first names.
+
+const users = [{ firstName: "Ram", lastName: "Das", age: 26}, { firstName: "Sita", lastName: "Devi", age: 75}, { firstName: "Ravan", lastName: "Panda", age: 50}, { firstName: "Laxman", lastName: "Sahu", age: 26}];: This line declares a constant variable users and initializes it with an array of 4 objects, each representing a user with a firstName, lastName, and age property.
+
+const output = users.filter((x) => x.age<30): This line declares a constant variable output and initializes it with the result of calling the filter() method on the users array. The filter() method takes a callback function as its argument. The callback function takes a single argument x, which represents each element in the users array. The filter() method returns a new array containing only the elements for which the callback function returns true. In this case, the callback function returns true if the age property of the x object is less than 30.
+
+.map((x)=> x.firstName);: This line chains the map() method to the filter() method. The map() method takes a callback function as its argument. The callback function takes a single argument x, which represents each filtered element in the users array. The map() method returns a new array containing the results of the callback function applied to each element in the input array. In this case, the callback function returns the firstName property of the x object.
+
+console.log(output);: This line logs the final value of output to the console, which should be an array ["Ram", "Sita"].
+
+So, in summary, the code uses the filter() method to filter the users array and only include the users whose age is less than 30. It then uses the map() method to extract the firstName property of each filtered user and return a new array of first names. The final result is stored in the output variable and logged to the console.
+
